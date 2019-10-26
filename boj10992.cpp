@@ -8,6 +8,7 @@ using namespace std;
 int main() {
     int n, i, left, right, center, start, distance, max;
     cin >> n;
+
     center = n;
     start = n-1;
     left = center;
@@ -28,11 +29,11 @@ int main() {
             right++;
             start = left-1;
             distance = right - left - 1;
-            while (start --) cout << " ";
+            while (start--) cout << " ";
             cout << "*";
-            while (distance --) cout << " ";
+            while (distance--) cout << " ";
             cout << "*" << endl;
         }
     }
-
+    return 0;
 }
