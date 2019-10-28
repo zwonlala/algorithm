@@ -15,50 +15,36 @@ const char* TOP_OPR = "top";
 
 void push(int* arr, int* count, int x) {
     arr[*count] = x;
-    (*count) ++;
+    (*count)++;
     return;
 }
 
 void pop (int* arr, int* count) {
-    cout << "pop";
-    if (*count == 0) {
-        cout << "-1" << endl;
-        return;
-    } else {
-        cout << arr[*count] << endl;
+    if (*count == 0) cout << "-1" << endl;
+    else {
+        cout << arr[*count-1] << endl;
         (*count)--;
-        return;
     }
+    return;
 }
 
 void size (int* arr, int* count) {
-    cout << "size";
     cout << *count << endl;
     return;
 }
 
 void empty (int* arr, int* count) {
-    cout << "empty//";
 
-    if (*count == 0) {
-        cout << "1" << endl;
-    }
-    else {
-        cout << "0" << endl;
-    }
+    if (*count == 0) cout << "1" << endl;
+    else cout << "0" << endl;
     return;
 }
 
 void top (int* arr, int* count) {
-    cout << "top//";
 
-    if (*count == 0) {
-        cout << "-1" << endl;
-        return;
-    } else {
-        cout << arr[*count] << endl;
-        return;
-    }
+    if (*count == 0) cout << "-1" << endl;
+    else cout << arr[*count -1] << endl;
+    return;
 }
 
 
