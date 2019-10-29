@@ -3,43 +3,46 @@
 //
 
 #include "iostream"
+#include "string.h"
 #include <stack>
 using namespace std;
 
 int main() {
     stack<char> left, right;
     int T, i;
-//    char first, temp;
-    char base[100001], input[3];
+    char base[600000];
 
     scanf("%s", base);
-    for (i=0; i<strlen(base); i++){
-//        temp = base[i];
-//        left.push(temp);
+//    for (i=0; i<strlen(base); i++){
+//        left.push(base[i]);
+//    }
+    for (i=0; base[i]; i++){
         left.push(base[i]);
     }
 
-    cin >> T;
-    cout << T << endl;
+    scanf("%d", &T);
     while (T--) {
+        char command;
+        scanf(" %c", &command);
 
-        if (input[0] == 'L') {
-            cout << 'L' << endl;
+        if (command == 'L') {
             if (!left.empty()) {
                 right.push(left.top());
                 left.pop();
             }
-        } else if (input[0] == 'D') {
+        } else if (command == 'D') {
             if (!right.empty()) {
                 left.push(right.top());
                 right.pop();
             }
-        } else if (input[0] == 'B') {
+        } else if (command == 'B') {
             if (!left.empty()) {
                 left.pop();
             }
-        } else if (input[0] == 'P') {
-            left.push(input[2]);
+        } else if (command == 'P') {
+            char c;
+            scanf(" %c", &c);
+            left.push(c);
         }
     }
 
@@ -49,9 +52,9 @@ int main() {
     }
 
     while (!right.empty()){
-        cout<<right.top();
+        printf("%c", right.top());
         right.pop();
     }
+    printf("\n");
     return 0;
-
 }
