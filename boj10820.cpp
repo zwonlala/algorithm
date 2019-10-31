@@ -11,7 +11,7 @@ int main() {
     int count[4], len;
     char input[101];
 
-    while (cin.getline(input, 101, '\n')) {
+    while ( cin.getline(input, 101, '\n')) {
         if (input[0]==0) break;
 
         for (int i=0; i<4; i++) {
