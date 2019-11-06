@@ -21,12 +21,12 @@ int main () {
     long long val1, val2;
     cin >> i1 >> i2 >> i3 >> i4;
 
-    len = get_len(i1);
+    len = get_len(i2);
     val1 = i1;
     while (len--) val1 *= 10;
     val1 += i2;
 
-    len = get_len(i3);
+    len = get_len(i4);
     val2 = i3;
     while (len--) val2 *= 10;
     val2 += i4;
