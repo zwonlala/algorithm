@@ -29,7 +29,7 @@ int main() {
             }
         }
 
-        if (temp!=-1) D[i] = max + 1;
+        if (max!=-1) D[i] = max + 1;
         else D[i] = 1;
 
 
