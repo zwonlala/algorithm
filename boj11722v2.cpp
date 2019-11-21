@@ -16,7 +16,7 @@ int main() {
     }
 
     D[1] = 1;
-    ANS = 0;
+    ANS = D[1];
     for (int i=2; i<=N; i++) {
         max = -1;
         for (int j=1; j<i; j++) {
