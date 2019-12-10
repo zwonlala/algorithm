@@ -22,7 +22,19 @@ int main() {
         return 0;
     }
 
-    for (int i=0; i<=N; i=i+2) {
-        
+    if (N <= 4) {
+        cout << D[N] << endl;
+        return 0;
     }
+
+    for (int i=6; i<=N; i=i+2) {
+        int temp = 0;
+        for (int j=0; j<=i-4; j+=2) {
+            temp += D[j] * 2;
+        }
+        temp += D[i-2] * 3;
+        D[i] = temp;
+    }
+    cout << D[N] << endl;
+    return 0;
 }
