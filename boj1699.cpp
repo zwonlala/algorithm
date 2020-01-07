@@ -3,30 +3,29 @@
 //
 
 #include "iostream"
-#include <cmath>
 
 using namespace std;
 
-int D (int N) {
-    int sqrt_N;
-    int diff;
-
-    if (N == 0) {
-        return 0;
-    }
-
-    if (N == 1) {
-        return 1;
-    }
-    sqrt_N = (int) sqrt(1.0 * N);
-    diff = N - sqrt_N * sqrt_N;
-
-    return 1 + D(diff);
-}
-
 int main() {
-    int N;
+    int i, N;
+    int D[100001] = {0, };
+
+    D[1] = 1;
+    D[2] = 2;
 
     cin >> N;
-    cout << D(N) << endl;
+
+    for (int i = 3; i <= N; i++) {
+
+        D[i] = i;
+
+        for (int j=1; j * j <= i; j++) {
+
+            if (D[i-j*j] + 1 < D[i]) {
+                D[i] = D[i-j*j] + 1;
+            }
+        }
+    }
+
+    cout << D[N] << endl;
 }
