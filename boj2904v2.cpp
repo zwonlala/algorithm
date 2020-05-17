@@ -8,6 +8,7 @@
 using namespace std;
 
 int pn;
+bool c[1000];
 int primes[1000];
 
 int numbers[101];
@@ -61,7 +62,7 @@ void get_avg_primes(int num) {
 void get_number_primes(int index, int num) {
     for (int i=0; i<pn; i++) {
         if (num % primes[i] == 0) {
-            while (num / primes[i] == 0) {
+            while (num % primes[i] == 0 ) {
                 number_primes[index][i]++;
                 num /= primes[i];
             }
@@ -72,7 +73,6 @@ void get_number_primes(int index, int num) {
 
 void get_primes() {
     pn = 0;
-    bool c[1000];
     int n = 1000;
 
     for (int i=2; i <= n; i++) {
@@ -89,21 +89,28 @@ void get_primes() {
 int main() {
     get_primes();
 
-    for (int i=0; i<pn; i++) {
-        printf("%d ", primes[i]);
+//    for (int i=0; i<pn; i++) {
+//        printf("%d ", primes[i]);
+//    }
+
+    int N;
+
+    scanf("%d", &N);
+
+    for (int i=0; i<N; i++) {
+        scanf("%d", &numbers[i]);
+        get_number_primes(i, numbers[i]);
     }
 
-//    int N;
-//
-//    scanf("%d", &N);
-//
-//    for (int i=0; i<N; i++) {
-//        scanf("%d", &numbers[i]);
-//        get_number_primes(i, numbers[i]);
+//    for (int i=0; i<N; i++){
+//        for (int j=0; j<pn; j++) {
+//            printf("%d ", number_primes[i][j]);
+//        }
+//        printf("\n");
 //    }
-//
-//    get_avg_primes(N);
-//
-//    printf("%d %d\n", get_avg_gcd(), get_avg_diff(N)/2);
-//    return 0;
+
+    get_avg_primes(N);
+
+    printf("%d %d\n", get_avg_gcd(), get_avg_diff(N)/2);
+    return 0;
 }
