@@ -16,4 +16,5 @@ int main() {
     printf("%ld\n", a / b);
     printf("%ld\n", a % b);
     printf("%.2f\n", (double)a / b);
+    return 0;
 }
