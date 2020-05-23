@@ -45,10 +45,10 @@ int find_smallest(vector<pair<int, int>> &input) {
     int smallest_diff_value = 3000;
 
     vector<pair<int, int>> ::iterator it;
-    for (it=input.begin(); it != input.end()-1; it++) {
+    for (it=input.begin(); (it+1) != input.end(); it++) {
         if (it->second < smallest_diff_value) {
-            smallest_diff_index = it - input.begin();
             smallest_diff_value = it -> second;
+            smallest_diff_index = it - input.begin();
         }
     }
 
@@ -65,15 +65,14 @@ int delete_pair(vector<pair<int, int>> &input, int index) {
     int erase_data1 = input[index].first;
     int erase_data2 = input[index].second;
     int erase_data3 = input[index+1].first;
-    int erase_data4 = input[index+1].second;
     //no problem
 //    printf("\n\n\n\t\t%d/%d/%d/%d\n", erase_data1, erase_data2, erase_data3, erase_data4);
 
     int remain_data = erase_data1<erase_data3 ? erase_data1 : erase_data3;
 
     input.erase(it1);
-    input.erase(it1);
     input.insert(it1, make_pair( remain_data, 0));
+    input.erase(it1 + 1);
 
 
     //no problem
