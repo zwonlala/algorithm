@@ -26,13 +26,15 @@ int get_max_val(vector<int> input) {
 int main() {
     int T, N, M;
     int temp;
-    vector<int> v;
-    vector<int> ::iterator it;
+
 
     scanf("%d", &T);
     while (T--) {
         int count = 0;
         scanf("%d%d", &N, &M);
+
+        vector<int> v;
+        vector<int> ::iterator it;
 
         for (int i=0; i<N; i++) {
             scanf("%d", &temp);
@@ -40,11 +42,22 @@ int main() {
         }
 
         v[M] *= -1;
-        while(true) {
+
+        printf("입력 최종 :");
+        for (it=v.begin(); it!=v.end(); it++) {
+            printf("%d>>", *it);
+        }
+        printf("maxval : %d\n", get_max_val(v));
+
+        while(v.size() != 0) {
             it = v.begin();
-            printf("%d->", *it);
-            if (abs(*it) == get_max_val(v)) {
-                if (*it < 0) { break; }
+            printf("size:%d/%d   ", v.size(), *it);
+            if (abs(*it) == get_max_val(v)) { //가장 높은 우선 순위가 가장 앞에 있을 경우 => 출력!
+                if (*it < 0) {
+                    v.erase(it);
+                    count++;
+                    break;
+                }
                 else {
                     v.erase(it);
                     count++;
@@ -55,6 +68,6 @@ int main() {
                 v.erase(it);
             }
         }
-        printf("\n%d\n", count + 1);
+        printf("\n%d\n", count);
     }
 }
