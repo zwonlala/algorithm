@@ -59,7 +59,8 @@ int main() {
 //        cout << Q.size() << ">>>\n";
 
         queue<pair<int,int>> temp_Q;
-        for (int x=0; x<Q.size(); x++) {
+        int size = Q.size();
+        for (int x=0; x<size; x++) {
             auto cur = Q.front();
             Q.pop();
 
@@ -86,6 +87,6 @@ int main() {
         }
     }
 
-    if (change_cnt == cnt_input[1]) cout << DAY;
+    if (change_cnt == cnt_input[1]) cout << --DAY;
     else cout << "-1";
 }
