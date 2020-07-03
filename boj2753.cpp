@@ -1,0 +1,15 @@
+//
+// Created by 송지원 on 2020/07/03.
+//
+
+#include <iostream>
+using namespace std;
+int main() {
+    int year;
+    cin >> year;
+
+    if (year%4==0 & year%100 != 0) cout << 1;
+    else if (year % 400 == 0) cout << 1;
+    else cout << 0;
+    return 0;
+}
