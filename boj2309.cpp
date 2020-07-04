@@ -26,15 +26,16 @@ int main() {
             int index2 = num[diff-input[i]];
             input[index1] = -1;
             input[index2] = -1;
+            break;
         }
     }
-    for (int i=0; i<9; i++){
-        cout << input[i]<< " ";
-    }
+//    for (int i=0; i<9; i++){
+//        cout << input[i]<< " ";
+//    }
     sort(input, input + 9);
-    for (int i=0; i<9; i++){
-        cout << input[i]<< " ";
-    }
+//    for (int i=0; i<9; i++){
+//        cout << input[i]<< " ";
+//    }
     for (int i=2; i<9; i++){
         cout << input[i] << "\n";
     }
