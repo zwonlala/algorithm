@@ -11,10 +11,8 @@ using namespace std;
 int T, N, A, B;
 vector<int> primeV;
 int primeCnt;
-int box[1000005];
-int dist[1000005];
-queue<int> Q;
-int CNT = 1000000;
+int dp[1000005]
+int MIN = 1000005;
 
 bool isPrime(int input) {
     bool prime = true;
@@ -51,24 +49,13 @@ int main() {
             cout << -1 << "\n";
             continue;
         }
-        fill(dist, dist+1000005, -1);
+        fill(dp, dp+1000005, -1);
         for (int i=0; i<primeCnt; i++){
             int target = primeV.at(i);
             cout << "target :" << target ;
-            queue<int> emptyQ;
-            swap(Q, emptyQ);
-            Q.push(N);
-            dist[N] = 0;
+            dp[target] = 0;
 
-            while (!Q.empty()) {
-                auto cur = Q.front();
-                cout << "<cur :" << cur <<">\t";
-                Q.pop();
-
-                if (cur == target) {
-                    CNT = min(CNT, dist[cur]);
-                    break;
-                }
+            while (!dp[N] != -1) {
 
                 for (int j=0; j<4; j++) {
                     int nx;
