@@ -9,15 +9,23 @@ int N;
 char ch;
 stack<char> pleft;
 stack<char> pright;
+int strLen;
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
     cin >> N;
-    getchar();
+//    getchar();
     while (N--) {
-        while ((ch=getchar()) != '\n'){
+        string str;
+//        cin >> str;
+        getline(cin, str);
+        strLen = str.size();
+        for (int i=0; i<strLen; i++) {
+            ch = str[i];
+//        while ((ch=getchar()) != '\n'){
+            cout << "[" <<ch << "]\t";
 
             if (ch == '<') {
                 if (pleft.empty()) continue;
@@ -40,11 +48,15 @@ int main() {
             }
         }
 
-        while (!pleft.empty()) {
+//        while (!pleft.empty()) {
+        int leftSize = pleft.size();
+        for (int i=0; i<leftSize; i++) {
             pright.push(pleft.top());
             pleft.pop();
         }
-        while (!pright.empty()) {
+//        while (!pright.empty()) {
+        int rightSize = pright.size();
+        for (int i=0; i<rightSize; i++) {
             cout << pright.top();
             pright.pop();
         }
