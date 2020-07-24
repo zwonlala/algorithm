@@ -19,6 +19,7 @@ int main() {
         fill(diceCnt, diceCnt+6, 0);
         fill(diceCnt2, diceCnt2+6, 0);
         temp = 0;
+        maxVal = 0;
         for (int j=0; j<4; j++) {
             cin >> temp;
             maxVal = max(maxVal, temp);

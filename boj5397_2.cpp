@@ -67,8 +67,8 @@ int main() {
         for (int i=0; i<leftCnt; i++) {
             cout << leftS[i];
         }
-        for (int i=rightTop-1; i>=0; i--) {
-            cout << rightS[i];
+        for (int i=0; i<rightCnt; i++) {
+            cout << rightS[rightTop-1-i];
         }
     }
 }
