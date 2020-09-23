@@ -4,14 +4,19 @@
 
 #include <iostream>
 #include <stack>
-#include <deque>
+#include <vector>
+
 using namespace std;
 
 int n;
 int temp;
-deque<int> seq = deque<int>(100000);
-deque<int> ans = deque<int>(100000);
+
+int seq;
+vector<int> input = vector<int>(100000);
 stack<int> S;
+vector<char> ANS;
+
+int input_i = 0;
 
 
 int main() {
@@ -20,8 +25,40 @@ int main() {
 
     cin >> n;
     for (int i=1; i<=n; i++) {
-        cin >> ans[i-1];
-        seq[i-1] = i;
+        cin >> input[i-1];
+        cout
+    }
+
+
+    seq = 1;
+    S.push(input[0]);
+    ANS.push_back('+');
+
+    while (true) {
+        if (S.empty()) {
+            cout << "NO"<<"\n";
+            return 0;
+        }
+        if (seq == n+1) {
+            break;
+        }
+
+        if (input[ans_i] == S.top()) {
+            cout << "-"<<endl;
+            ans_i++;
+            S.pop();
+        }
+        else if (input[ans_i] > seq) {
+            cout << "+" << endl;
+            S.push(seq);
+            seq++;
+        }
+    }
+
+    vector<char> ::iterator it;
+
+    for (it=ANS.begin(); it!=ANS.end(); it++) {
+        cout << *it;
     }
 
 
